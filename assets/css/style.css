@@ -1,0 +1,25 @@
+body{
+    background-color: aqua;
+}
+.container{
+    margin-top: 20px;
+    background-image: url(../images/twomugs.jpg);
+    background-size: cover;
+padding: 20px
+}
+.card{
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right: auto;
+    
+}
+.possibleAnswer{
+
+
+}
+#timerCard{
+    background-color: blue;
+}
+#questionCard{
+    background-color: rebeccapurple;
+}
