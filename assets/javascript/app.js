@@ -12,7 +12,7 @@ var questionList = [
         wrongAnswer3: "wrong choice three",
         questionImg: "",
         answerImg: "",
-        isCorrect: false,
+
     },
     item2 = {
         question: "Choose the right answer",
@@ -22,21 +22,19 @@ var questionList = [
         wrongAnswer3: "wrong choice three",
         questionImg: "",
         answerImg: "",
-        isCorrect: false,
+
     },
 
 ]
-console.log(questionList.length)
 var correct = 0;
 var wrong = 0;
-var total = 0;
+var unanswered = 0;
 
-console.log(questionList[1].answer)
 // Functions Below here
 function gameReset() {
     // resets game
     wrong = 0;
-    total = 0;
+    unanswered = 0;
     correct = 0;
 }
 function shuffle(array) {
@@ -73,14 +71,52 @@ function questionReset(item) {
 function congratsDude(object) {
     // follows up correct answer choice
     correct++;
-    object.isCorrect = true;
 
+    // add class "alert-success" 
+    // add class "alert-danger"
 
 }
-function getYourShitTogether() {
+function getYourShitTogether(object) {
     // follows choosing wrong number
-    wrong--
+    wrong++
 
 }
 // GAME BEGINS HERE.
-window.onload = questionReset(questionList[1]);
+window.onload =
+    $("#start").on('click', function () {
+        console.log("gameBegins");
+        // set game up
+        gameReset();
+        $(".card").removeClass("hidden");
+        $("#start").addClass("hidden");
+
+        for (i = 0; i < questionList.length; i++) {
+            // need to change questionlist[1] to game function
+            questionReset(questionList[i])
+            $(".possibleAnswer").on('click', function () {
+                var click = $(this);
+                var check = click.text();
+                if (check === questionList[1].answer) {
+                    congratsDude(questionList[1])
+                    console.log("correct" + correct)
+
+                } else {
+                    getYourShitTogether(questionList[1])
+                    console.log("wrong" + wrong)
+                }
+
+            })
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    )

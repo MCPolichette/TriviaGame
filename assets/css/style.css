@@ -5,7 +5,9 @@ body{
     margin-top: 20px;
     background-image: url(../images/twomugs.jpg);
     background-size: cover;
-padding: 20px
+padding: 20px;
+text-align: center;
+min-height: 494px;
 }
 .card{
     margin-top: 20px;
@@ -14,12 +16,18 @@ padding: 20px
     
 }
 .possibleAnswer{
-
+    background-color: rgb(238, 171, 123);
 
 }
 #timerCard{
-    background-color: blue;
+    background-color: sandybrown;
 }
-#questionCard{
-    background-color: rebeccapurple;
+.card-header{
+    background-color: chocolate;
+}
+.btn{
+    margin:auto;
+}
+.hidden{
+    display: none;
 }
