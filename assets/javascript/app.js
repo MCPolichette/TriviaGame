@@ -1,43 +1,41 @@
 
 // questionArray is for shuffling questions
-questionsAsked = 3;
+questionsAsked = 4;
 var questionList = [
-
     // Objects as Trivia Questions
-    // Using the term ITEM for starting variable.  because I want to use the term QUESTION for a variable inside the object
     {
-        question: "X Will you choose the right answer?",
-        answer: "X The right option",
-        wrongAnswer1: "X wrong choice two",
-        wrongAnswer2: "X wrong choice two",
-        wrongAnswer3: "X wrong choice three",
+        question: "which of the following is a lager?",
+        answer: "Pilsner",
+        wrongAnswer1: "IPA",
+        wrongAnswer2: "Ale",
+        wrongAnswer3: "Stout",
         questionImg: "",
         answerImg: "",
     },
     {
-        question: "Choose the right answer",
-        answer: "The right option",
-        wrongAnswer1: "wrong choice one",
-        wrongAnswer2: "wrong choice two",
-        wrongAnswer3: "wrong choice three",
+        question: "Which country has the most individual beer brands?",
+        answer: "Belgium",
+        wrongAnswer1: "United States",
+        wrongAnswer2: "Norway",
+        wrongAnswer3: "Germany",
         questionImg: "",
         answerImg: "",
     },
     {
-        question: "Choose the right answer",
-        answer: "The right option2222222222222222222",
-        wrongAnswer1: "2wrong choice one",
-        wrongAnswer2: "2wrong choice two",
-        wrongAnswer3: "2wrong choice three",
+        question: "What is Cenosillicaphobia?",
+        answer: "The fear of an empty glass",
+        wrongAnswer1: "Latin term for fermenting yeast",
+        wrongAnswer2: "A region in central Europe where beer was invented",
+        wrongAnswer3: "A made up word for a beer quiz",
         questionImg: "",
         answerImg: "",
     },
     {
-        question: "Choose the right answer4444444444444",
-        answer: "The right option",
-        wrongAnswer1: "3wrong choice one",
-        wrongAnswer2: "3wrong choice two",
-        wrongAnswer3: "3wrong choice three",
+        question: "What American City goes by the nickname, 'Beervana' because of all the microbreweries in the area?",
+        answer: "Portland, Oregon",
+        wrongAnswer1: "Denver, Colorado",
+        wrongAnswer2: "Brooklyn, New York",
+        wrongAnswer3: "Reno, Nevada",
         questionImg: "",
         answerImg: "",
     },
@@ -165,8 +163,11 @@ function endGame() {
     $(".score").removeClass("hidden");
     $("#totalCorrect").text("Correct:  " + correct);
     $("#totalWrong").text("Wrong:  " + wrong);
-    $("#totalUnanswered").text("Unanswered:  " + unanswered)
+    $("#totalUnanswered").text("Unanswered:  " + unanswered);
     $("#start").removeClass("hidden")
+    $("#start").text("TRY AGAIN?");
+    $(".isWrong").addClass("hidden");
+
 
 }
 // GAME BEGINS HERE.
