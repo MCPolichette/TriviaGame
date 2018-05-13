@@ -1,6 +1,6 @@
 
 // questionArray is for shuffling questions
-questionsAsked = 2;
+questionsAsked = 3;
 var questionList = [
 
     // Objects as Trivia Questions
@@ -85,9 +85,12 @@ function countDownTimer() {
             console.log(timerOn);
             stop();
             nextQuestion();
+            unanswered++;
             $("#confirm").text("YOU RAN OUT OF TIME");
             console.log(questionIndex);
-            // questionReset(questionList[questionIndex]);
+            $("#prompt").text("the correct answer was");
+            $("#correctAnswer").text(questionList[questionIndex].answer);
+
         }
     }
 }
@@ -99,7 +102,7 @@ function nextQuestion() {
     $(".game").addClass("hidden");
     $("#scoreCard").removeClass("hidden");
     console.log(questionIndex);
-    questionIndex++;
+    setTimeout(function () { questionIndex++ }, 1500);
     console.log(questionIndex);
     console.log(questionList[questionIndex]);
     setTimeout(function () { questionReset(questionList[questionIndex]) }, 5000);
@@ -107,7 +110,7 @@ function nextQuestion() {
 
 
 function questionReset(object) {
-    if (questionIndex > questionList.length) {
+    if (questionIndex >= questionsAsked) {
         endGame();
         console.log("GAMEOVER");
     } else {
@@ -137,21 +140,34 @@ function questionReset(object) {
 function congratsDude(object) {
     // follows up correct answer choice
     correct++;
-
-
-
-    // add class "alert-success" 
-    // add class "alert-danger"
-
+    stop();
+    nextQuestion();
+    $("#confirm").text("YOU ARE CORRECT");
+    console.log(questionIndex);
+    $(".isWrong").addClass("hidden");
 }
 function getYourShitTogether(object) {
     // follows choosing wrong number
     wrong++
-
+    stop();
+    nextQuestion();
+    $(".isWrong").removeClass("hidden");
+    $("#confirm").text("YOU ARE WRONG");
+    console.log(questionIndex);
+    $("#prompt").text("the correct answer was");
+    $("#correctAnswer").text(questionList[questionIndex].answer);
 }
 
 function endGame() {
-    console("GAMEOVER");
+    console.log("GAMEOVER");
+    $(".game").addClass("hidden");
+    $("#scoreCard").removeClass("hidden");
+    $(".score").removeClass("hidden");
+    $("#totalCorrect").text("Correct:  " + correct);
+    $("#totalWrong").text("Wrong:  " + wrong);
+    $("#totalUnanswered").text("Unanswered:  " + unanswered)
+    $("#start").removeClass("hidden")
+
 }
 // GAME BEGINS HERE.
 window.onload =
@@ -173,13 +189,13 @@ window.onload =
             if (check === questionList[questionIndex].answer) {
                 congratsDude(questionList[questionIndex]);
                 console.log("correct" + correct);
-                setTimeout(nextQuestion(questionList[questionIndex]), 5000);
+
 
 
             } else {
                 getYourShitTogether(questionList[1]);
                 console.log("wrong" + wrong);
-                setTimeout(nextQuestion(questionList[questionIndex]), 5000);
+
 
             }
 
