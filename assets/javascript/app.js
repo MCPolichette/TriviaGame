@@ -84,8 +84,10 @@ function questionReset(item) {
     var displayArray = ["#a1", "#a2", "#a3", "#a4"];
     for (i = 0; i < displayArray.length; i++) {
         $(displayArray[i]).text(answerArray[i]);
-    };
 
+    };
+    seconds = 10;
+    // countDownTimer();
     console.log("test")
 }
 // console.log("does this work?" + displayArray[i]);
@@ -106,26 +108,30 @@ function getYourShitTogether(object) {
 }
 // GAME BEGINS HERE.
 window.onload =
+
     $("#start").on('click', function () {
         console.log("gameBegins");
         // set game up
         gameReset();
         currentQuestion = questionList[0];
-        $(".card").removeClass("hidden");
+        $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
-        countDownTimer();
+
         questionReset(currentQuestion)
         $(".possibleAnswer").on('click', function () {
             var click = $(this);
             var check = click.text();
+
             if (check === currentQuestion.answer) {
                 congratsDude(currentQuestion);
                 console.log("correct" + correct);
+                stop();
                 questionReset(currentQuestion);
 
             } else {
                 getYourShitTogether(questionList[1]);
                 console.log("wrong" + wrong);
+                stop()
                 questionReset(questionList[1]);
             }
 

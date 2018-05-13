@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Trivia Game</title>
+    <title>Beer Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- bootstrap / jquery -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -15,6 +15,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <!-- my audio elements on preload -->
 
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Ewert|Lalezar" rel="stylesheet">
+
 
 </head>
 
@@ -22,12 +25,12 @@
     <div class="container ">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1 id="x"> TRIVIA!</h1>
+                <h1 id="x"> BEER TRIVIA!</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 test">
-                <div class="card  text-center hidden" id="timerCard" style="width: 18rem;">
+                <div class="card  text-center hidden game" id="timerCard" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Time remaining:</h5>
                         <h5 class="card-text" id="countDown">10 seconds</h5>
@@ -35,7 +38,8 @@
                     </div>
                 </div>
                 <button type="button" id="start" class="btn btn-primary btn-lg">Click Here to Start</button>
-                <div class="card  text-center hidden" id="questionCard" style="width: 32rem;">
+
+                <div class="card  text-center hidden game" id="questionCard" style="width: 32rem;">
                     <!-- "q" stands for question /  "a*" stands for answer -->
                     <div class="card-header" id='q'>
                         This is where I would put a real question?
@@ -45,6 +49,18 @@
                         <a class="list-group-item-action possibleAnswer" id="a2">temporary answer</a>
                         <a class="list-group-item-action possibleAnswer" id="a3">temporary answer</a>
                         <a class="list-group-item-action possibleAnswer" id="a4">temporary answer</a>
+                    </ul>
+                </div>
+                <div class="card text-center hidden" id="questionCard" style="width: 32rem;">
+                    <!-- "q" stands for question /  "a*" stands for answer -->
+                    <div class="card-header" id='q'>
+                        This is where I would put a real question?
+                    </div>
+                    <ul class="list-group list-group-flush" id="answerist">
+                        <p class="list-group-item" id="confirm">temporary answer</p>
+                        <p class="list-group-item" id="correctAnswer"></p>
+                        <div id="imagePlace"></div>
+
                     </ul>
                 </div>
             </div>
