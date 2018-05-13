@@ -18,7 +18,7 @@ var questionList = [
         wrongAnswer1: "United States",
         wrongAnswer2: "Norway",
         wrongAnswer3: "Germany",
-        questionImg: "",
+        questionImg: "assets/images/homersdream",
         answerImg: "",
     },
     {
@@ -41,6 +41,11 @@ var questionList = [
     },
 
 ]
+failImages = ["assets/images/beerfailone.webp", "assets/images/beerfailarresteddevelopment.webp", "assets/images/beerfailkeg.webp", "assets/images/beerfailsanta.webp"]
+function WrongAnswerImage() {
+    i = (Math.floor(Math.random() * failImages.length));
+    $("#imagePlace").attr("src", failImages[i]);
+}
 // global timer variables:
 var seconds = 10;
 var secondID;
@@ -143,11 +148,13 @@ function congratsDude(object) {
     $("#confirm").text("YOU ARE CORRECT");
     console.log(questionIndex);
     $(".isWrong").addClass("hidden");
+    $("#imagePlace").attr("src", object.answerImg)
 }
 function getYourShitTogether(object) {
     // follows choosing wrong number
     wrong++
     stop();
+    WrongAnswerImage();
     nextQuestion();
     $(".isWrong").removeClass("hidden");
     $("#confirm").text("YOU ARE WRONG");
