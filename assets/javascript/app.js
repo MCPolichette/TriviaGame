@@ -10,7 +10,7 @@ var questionList = [
         wrongAnswer2: "Ale",
         wrongAnswer3: "Stout",
         questionImg: "",
-        answerImg: "assets/images/giphy.gif",
+        answerImg: "assets/images/giphy(7).gif",
     },
     {
         question: "Which country has the most individual beer brands?",
@@ -19,7 +19,7 @@ var questionList = [
         wrongAnswer2: "Norway",
         wrongAnswer3: "Germany",
         questionImg: "assets/images/homersdream",
-        answerImg: "assets/images/giphy(2).gif",
+        answerImg: "assets/images/giphy(6).gif",
     },
     {
         question: "What is Cenosillicaphobia?",
@@ -28,7 +28,7 @@ var questionList = [
         wrongAnswer2: "A region in central Europe where beer was invented",
         wrongAnswer3: "A made up word for a beer quiz",
         questionImg: "",
-        answerImg: "assets/images/giphy(3).gif",
+        answerImg: "assets/images/giphy(5).gif",
     },
     {
         question: "What American City goes by the nickname, 'Beervana' because of all the microbreweries in the area?",
@@ -96,7 +96,7 @@ function countDownTimer() {
             console.log(questionIndex);
             $("#prompt").text("the correct answer was");
             $("#correctAnswer").text(questionList[questionIndex].answer);
-
+            $('audio#horn_fail')[0].play();
         }
     }
 }
@@ -151,10 +151,11 @@ function congratsDude(object) {
     nextQuestion();
     $("#confirm").text("YOU ARE CORRECT");
     $(".isWrong").addClass("hidden");
-    $("#imagePlace").attr("src", "'" + object.answerImg + "'")
+    $("#imagePlace").attr("src", object.answerImg)
+    $('audio#correct_answer')[0].play();
     console.log(object.answerImg)
 }
-function getYourShitTogether(object) {
+function losingHappens(object) {
     // follows choosing wrong number
     wrong++
     stop();
@@ -170,6 +171,7 @@ function getYourShitTogether(object) {
 
 function endGame() {
     console.log("GAMEOVER");
+    stop();
     $(".game").addClass("hidden");
     $("#scoreCard").removeClass("hidden");
     $(".score").removeClass("hidden");
@@ -208,7 +210,7 @@ window.onload =
 
 
             } else {
-                getYourShitTogether(questionList[1]);
+                losingHappens(questionList[1]);
                 console.log("wrong" + wrong);
 
 
