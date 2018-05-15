@@ -39,13 +39,59 @@ var questionList = [
         questionImg: "",
         answerImg: "assets/images/giphy(4).gif",
     },
+    {
+        question: "Which two states legalized homebrewing in 2013?",
+        answer: "Mississippi and Alabama",
+        wrongAnswer1: "New York and Oklahoma",
+        wrongAnswer2: "Utah and Idaho",
+        wrongAnswer3: "South Dakota and Maine",
+        questionImg: "",
+        answerImg: "assets/images/giphy(7).gif",
+    },
+    {
+        question: "Which country drinks the most Guinness?",
+        answer: "Nigeria",
+        wrongAnswer1: "United States",
+        wrongAnswer2: "Ireland",
+        wrongAnswer3: "China",
+        questionImg: "assets/images/homersdream",
+        answerImg: "assets/images/giphy(6).gif",
+    },
+    {
+        question: "A barrel of beer contains how many gallons?",
+        answer: "31 gallons",
+        wrongAnswer1: "55 gallons",
+        wrongAnswer2: "42 gallons",
+        wrongAnswer3: "5 gallons",
+        questionImg: "",
+        answerImg: "assets/images/giphy(7).gif",
+    },
+    {
+        question: "What is a Labeorphilist?",
+        answer: "a collector of beer bottles",
+        wrongAnswer1: "a brewing historian",
+        wrongAnswer2: "an axe wielding maniac",
+        wrongAnswer3: "an alcohol expert",
+        questionImg: "assets/images/homersdream",
+        answerImg: "assets/images/giphy(6).gif",
+    },
+    {
+        question: "Lajitas, Texas is in this game for what reason?",
+        answer: "In the 1980s they elected a beer drinking goat to mayor",
+        wrongAnswer1: "They built the largest brewery in North America, and it burned down a year later.",
+        wrongAnswer2: "The location where the original recipe for beer was discovered on golden plates",
+        wrongAnswer3: "In 2011 they were labeled the hang-over capital of the world",
+        questionImg: "",
+        answerImg: "assets/images/giphy(7).gif",
+    },
 
 ];
+successImages["assets/images/giphy(4).gif", "assets/images/giphy(5).gif", "assets/images/giphy(6).gif", "assets/images/giphy(7).gif", "assets/images/giphy(8).gif", "assets/images/giphy(11).gif", "assets/images/giphy(15).gif", "assets/images/giphy(16).gif"]
 endImages = ["assets/images/end1.gif", "assets/images/end2.gif", "assets/images/end3.gif", "assets/images/end4.gif", "assets/images/end5.gif", "assets/images/end6.gif"]
 failImages = ["assets/images/fail1.gif", "assets/images/fail2.gif", "assets/images/fail3.gif", "assets/images/fail4.gif", "assets/images/fail5.gif", "assets/images/fail6.gif"]
-function WrongAnswerImage() {
-    i = (Math.floor(Math.random() * failImages.length));
-    $("#imagePlace").attr("src", failImages[i]);
+function randomImage(array) {
+    i = (Math.floor(Math.random() * array.length));
+    $("#imagePlace").attr("src", array[i]);
 }
 // global timer variables:
 var seconds = 10;
@@ -118,7 +164,6 @@ function nextQuestion() {
 function questionReset(object) {
     if (questionIndex >= questionsAsked) {
         endGame();
-        console.log("GAMEOVER");
     } else {
         $(".game").removeClass("hidden");
         $("#scoreCard").addClass("hidden");
@@ -151,7 +196,7 @@ function congratsDude(object) {
     nextQuestion();
     $("#confirm").text("YOU ARE CORRECT");
     $(".isWrong").addClass("hidden");
-    $("#imagePlace").attr("src", object.answerImg)
+    randomImage(successImages);
     $('audio#correct_answer')[0].play();
     console.log(object.answerImg)
 }
@@ -159,7 +204,7 @@ function losingHappens(object) {
     // follows choosing wrong number
     wrong++
     stop();
-    WrongAnswerImage();
+    randomImage(failImages);
     nextQuestion();
     $(".isWrong").removeClass("hidden");
     $("#confirm").text("YOU ARE WRONG");
@@ -181,8 +226,7 @@ function endGame() {
     $("#start").removeClass("hidden");
     $("#start").text("TRY AGAIN?");
     $(".isWrong").addClass("hidden");
-    i = (Math.floor(Math.random() * endImages.length));
-    $("#imagePlace").attr("src", endImages[i]);
+    randomImage(endImages);
     $('audio#end_game_song')[0].play();
 }
 
@@ -193,7 +237,7 @@ window.onload =
         console.log("gameBegins");
 
         // set game up
-        setTimeout(function () { gameReset(); }, 50);
+        gameReset();
 
         $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
