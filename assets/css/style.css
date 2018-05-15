@@ -40,3 +40,7 @@ h1{
 .hidden{
     display: none;
 }
+img{
+    max-height: 300px;
+
+}

@@ -10,7 +10,7 @@ var questionList = [
         wrongAnswer2: "Ale",
         wrongAnswer3: "Stout",
         questionImg: "",
-        answerImg: "",
+        answerImg: "assets/images/giphy.gif",
     },
     {
         question: "Which country has the most individual beer brands?",
@@ -19,7 +19,7 @@ var questionList = [
         wrongAnswer2: "Norway",
         wrongAnswer3: "Germany",
         questionImg: "assets/images/homersdream",
-        answerImg: "",
+        answerImg: "assets/images/giphy(2).gif",
     },
     {
         question: "What is Cenosillicaphobia?",
@@ -28,7 +28,7 @@ var questionList = [
         wrongAnswer2: "A region in central Europe where beer was invented",
         wrongAnswer3: "A made up word for a beer quiz",
         questionImg: "",
-        answerImg: "",
+        answerImg: "assets/images/giphy(3).gif",
     },
     {
         question: "What American City goes by the nickname, 'Beervana' because of all the microbreweries in the area?",
@@ -37,11 +37,12 @@ var questionList = [
         wrongAnswer2: "Brooklyn, New York",
         wrongAnswer3: "Reno, Nevada",
         questionImg: "",
-        answerImg: "",
+        answerImg: "assets/images/giphy(4).gif",
     },
 
-]
-failImages = ["assets/images/beerfailone.webp", "assets/images/beerfailarresteddevelopment.webp", "assets/images/beerfailkeg.webp", "assets/images/beerfailsanta.webp"]
+];
+endImages = ["assets/images/end1.gif", "assets/images/end2.gif", "assets/images/end3.gif", "assets/images/end4.gif", "assets/images/end5.gif", "assets/images/end6.gif"]
+failImages = ["assets/images/fail1.gif", "assets/images/fail2.gif", "assets/images/fail3.gif", "assets/images/fail4.gif", "assets/images/fail5.gif", "assets/images/fail6.gif"]
 function WrongAnswerImage() {
     i = (Math.floor(Math.random() * failImages.length));
     $("#imagePlace").attr("src", failImages[i]);
@@ -62,6 +63,8 @@ function gameReset() {
     unanswered = 0;
     correct = 0;
     questionIndex = 0;
+    $(".score").addClass("hidden");
+
 }
 function shuffle(array) {
     // shuffles any array
@@ -122,6 +125,7 @@ function questionReset(object) {
         stop();
         seconds = 10;
         countDownTimer();
+        $('audio#pour_me')[0].play();
         // resets next questsion
         $('#q').text(object.question);
         var answerArray = [object.answer, object.wrongAnswer1, object.wrongAnswer2, object.wrongAnswer3];
@@ -146,9 +150,9 @@ function congratsDude(object) {
     stop();
     nextQuestion();
     $("#confirm").text("YOU ARE CORRECT");
-    console.log(questionIndex);
     $(".isWrong").addClass("hidden");
-    $("#imagePlace").attr("src", object.answerImg)
+    $("#imagePlace").attr("src", "'" + object.answerImg + "'")
+    console.log(object.answerImg)
 }
 function getYourShitTogether(object) {
     // follows choosing wrong number
@@ -161,6 +165,7 @@ function getYourShitTogether(object) {
     console.log(questionIndex);
     $("#prompt").text("the correct answer was");
     $("#correctAnswer").text(questionList[questionIndex].answer);
+    $('audio#horn_fail')[0].play();
 }
 
 function endGame() {
@@ -171,12 +176,14 @@ function endGame() {
     $("#totalCorrect").text("Correct:  " + correct);
     $("#totalWrong").text("Wrong:  " + wrong);
     $("#totalUnanswered").text("Unanswered:  " + unanswered);
-    $("#start").removeClass("hidden")
+    $("#start").removeClass("hidden");
     $("#start").text("TRY AGAIN?");
     $(".isWrong").addClass("hidden");
-
-
+    i = (Math.floor(Math.random() * endImages.length));
+    $("#imagePlace").attr("src", endImages[i]);
+    $('audio#end_game_song')[0].play();
 }
+
 // GAME BEGINS HERE.
 window.onload =
 
@@ -184,7 +191,7 @@ window.onload =
         console.log("gameBegins");
 
         // set game up
-        gameReset();
+        setTimeout(function () { gameReset(); }, 50);
 
         $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
