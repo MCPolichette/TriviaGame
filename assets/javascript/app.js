@@ -86,7 +86,7 @@ var questionList = [
     },
 
 ];
-successImages["assets/images/giphy(4).gif", "assets/images/giphy(5).gif", "assets/images/giphy(6).gif", "assets/images/giphy(7).gif", "assets/images/giphy(8).gif", "assets/images/giphy(11).gif", "assets/images/giphy(15).gif", "assets/images/giphy(16).gif"]
+successImages = ["assets/images/giphy(4).gif", "assets/images/giphy(5).gif", "assets/images/giphy(6).gif", "assets/images/giphy(7).gif", "assets/images/giphy(8).gif", "assets/images/giphy(11).gif", "assets/images/giphy(15).gif", "assets/images/giphy(16).gif"]
 endImages = ["assets/images/end1.gif", "assets/images/end2.gif", "assets/images/end3.gif", "assets/images/end4.gif", "assets/images/end5.gif", "assets/images/end6.gif"]
 failImages = ["assets/images/fail1.gif", "assets/images/fail2.gif", "assets/images/fail3.gif", "assets/images/fail4.gif", "assets/images/fail5.gif", "assets/images/fail6.gif"]
 function randomImage(array) {
