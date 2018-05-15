@@ -10,15 +10,15 @@ var questionList = [
         wrongAnswer2: "Ale",
         wrongAnswer3: "Stout",
         questionImg: "",
-        answerImg: "assets/images/giphy(7).gif",
+        answerImg: "assets/images/cheers1.gif",
     }, {
         question: "Which country has the most individual beer brands?",
         answer: "Belgium",
         wrongAnswer1: "United States",
         wrongAnswer2: "Norway",
         wrongAnswer3: "Germany",
-        questionImg: "assets/images/homersdream",
-        answerImg: "assets/images/giphy(6).gif",
+        questionImg: "",
+        answerImg: "assets/images/cheers2.gif",
     }, {
         question: "What is Cenosillicaphobia?",
         answer: "The fear of an empty glass",
@@ -26,7 +26,7 @@ var questionList = [
         wrongAnswer2: "A region in central Europe where beer was invented",
         wrongAnswer3: "A made up word for a beer quiz",
         questionImg: "",
-        answerImg: "assets/images/giphy(5).gif",
+        answerImg: "assets/images/cheers3.gif",
     }, {
         question: "What American City goes by the nickname, 'Beervana' because of all the microbreweries in the area?",
         answer: "Portland, Oregon",
@@ -34,7 +34,7 @@ var questionList = [
         wrongAnswer2: "Brooklyn, New York",
         wrongAnswer3: "Reno, Nevada",
         questionImg: "",
-        answerImg: "assets/images/giphy(4).gif",
+        answerImg: "assets/images/cheers4.gif",
     }, {
         question: "Which two states legalized homebrewing in 2013?",
         answer: "Mississippi and Alabama",
@@ -42,7 +42,7 @@ var questionList = [
         wrongAnswer2: "Utah and Idaho",
         wrongAnswer3: "South Dakota and Maine",
         questionImg: "",
-        answerImg: "assets/images/giphy(7).gif",
+        answerImg: "assets/images/cheers5.gif",
     },
     {
         question: "Which country drinks the most Guinness?",
@@ -50,8 +50,8 @@ var questionList = [
         wrongAnswer1: "United States",
         wrongAnswer2: "Ireland",
         wrongAnswer3: "China",
-        questionImg: "assets/images/homersdream",
-        answerImg: "assets/images/giphy(6).gif",
+        questionImg: "",
+        answerImg: "assets/images/cheers6.gif",
     }, {
         question: "A barrel of beer contains how many gallons?",
         answer: "31 gallons",
@@ -59,19 +59,19 @@ var questionList = [
         wrongAnswer2: "42 gallons",
         wrongAnswer3: "5 gallons",
         questionImg: "",
-        answerImg: "assets/images/giphy(7).gif",
+        answerImg: "assets/images/cheers7.gif",
     }, {
         question: "What is a Labeorphilist?",
         answer: "a collector of beer bottles",
         wrongAnswer1: "a brewing historian",
         wrongAnswer2: "an axe wielding maniac",
         wrongAnswer3: "an alcohol expert",
-        questionImg: "assets/images/homersdream",
-        answerImg: "assets/images/giphy(6).gif",
+        questionImg: "",
+        answerImg: "assets/images/cheers8.gif",
     },
 
 ];
-successImages = ["assets/images/cheers1.gif"]
+successImages = ["assets/images/cheers10.gif"]
 endImages = ["assets/images/end1.gif", "assets/images/end2.gif", "assets/images/end3.gif", "assets/images/end4.gif", "assets/images/end5.gif", "assets/images/end6.gif"]
 failImages = ["assets/images/fail1.gif", "assets/images/fail2.gif", "assets/images/fail3.gif", "assets/images/fail4.gif", "assets/images/fail5.gif", "assets/images/fail6.gif"]
 function randomImage(array) {
@@ -94,8 +94,10 @@ function gameReset() {
     unanswered = 0;
     correct = 0;
     questionIndex = 0;
-    $(".score").addClass("hidden");
     shuffle(questionList);
+    $(".score").addClass("hidden");
+    $("#confirm").removeClass("hidden");
+    console.log("Game Reset confirmed. wrong:" + wrong + " unanswered:" + unanswered + " correct:" + correct + " questionindex:" + questionIndex)
 }
 function shuffle(array) {
     // shuffles any array
@@ -180,7 +182,8 @@ function congratsDude(object) {
     nextQuestion();
     $("#confirm").text("YOU ARE CORRECT");
     $(".isWrong").addClass("hidden");
-    randomImage(successImages);
+    // randomImage(successImages);
+    $("#imagePlace").attr("src", object.answerImg);
     $('audio#correct_answer')[0].play();
     console.log(object.answerImg)
 }
@@ -204,6 +207,7 @@ function endGame() {
     $(".game").addClass("hidden");
     $("#scoreCard").removeClass("hidden");
     $(".score").removeClass("hidden");
+    $("#confirm").addClass("hidden");
     $("#totalCorrect").text("Correct:  " + correct);
     $("#totalWrong").text("Wrong:  " + wrong);
     $("#totalUnanswered").text("Unanswered:  " + unanswered);
@@ -212,6 +216,7 @@ function endGame() {
     $(".isWrong").addClass("hidden");
     randomImage(endImages);
     $('audio#end_game_song')[0].play();
+
 }
 
 // GAME BEGINS HERE.
@@ -222,6 +227,8 @@ window.onload =
 
         // set game up
         gameReset();
+        console.log("Game Reset confirmed. wrong:" + wrong + " unanswered:" + unanswered + " correct:" + correct + " questionindex:" + questionIndex)
+
         $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
         countDownTimer()
