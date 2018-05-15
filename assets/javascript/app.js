@@ -111,7 +111,7 @@ function nextQuestion() {
     setTimeout(function () { questionIndex++ }, 1500);
     console.log(questionIndex);
     console.log(questionList[questionIndex]);
-    setTimeout(function () { questionReset(questionList[questionIndex]) }, 5000);
+    setTimeout(function () { questionReset(questionList[questionIndex]) }, 5500);
 }
 
 
