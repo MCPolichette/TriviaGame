@@ -118,7 +118,6 @@ function countDownTimer() {
     function decrement() {
         seconds--;
         $('#countDown').html("<h5>" + seconds + " seconds</h5>");
-        console.log(seconds);
         if (seconds === 0) {
             timerOn = false;
             console.log(timerOn);
@@ -165,7 +164,6 @@ function questionReset(object) {
         // answerArray is used for shuffling answers
         console.log(object.question);
         shuffle(answerArray);
-        console.log(answerArray);
 
         var displayArray = ["#a1", "#a2", "#a3", "#a4"];
         for (i = 0; i < displayArray.length; i++) {
