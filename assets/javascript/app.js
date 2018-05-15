@@ -1,6 +1,6 @@
 
 // questionArray is for shuffling questions
-questionsAsked = 9;
+questionsAsked = 5;
 var questionList = [
     // Objects as Trivia Questions
     {
@@ -11,8 +11,7 @@ var questionList = [
         wrongAnswer3: "Stout",
         questionImg: "",
         answerImg: "assets/images/giphy(7).gif",
-    },
-    {
+    }, {
         question: "Which country has the most individual beer brands?",
         answer: "Belgium",
         wrongAnswer1: "United States",
@@ -20,8 +19,7 @@ var questionList = [
         wrongAnswer3: "Germany",
         questionImg: "assets/images/homersdream",
         answerImg: "assets/images/giphy(6).gif",
-    },
-    {
+    }, {
         question: "What is Cenosillicaphobia?",
         answer: "The fear of an empty glass",
         wrongAnswer1: "Latin term for fermenting yeast",
@@ -29,8 +27,7 @@ var questionList = [
         wrongAnswer3: "A made up word for a beer quiz",
         questionImg: "",
         answerImg: "assets/images/giphy(5).gif",
-    },
-    {
+    }, {
         question: "What American City goes by the nickname, 'Beervana' because of all the microbreweries in the area?",
         answer: "Portland, Oregon",
         wrongAnswer1: "Denver, Colorado",
@@ -38,8 +35,7 @@ var questionList = [
         wrongAnswer3: "Reno, Nevada",
         questionImg: "",
         answerImg: "assets/images/giphy(4).gif",
-    },
-    {
+    }, {
         question: "Which two states legalized homebrewing in 2013?",
         answer: "Mississippi and Alabama",
         wrongAnswer1: "New York and Oklahoma",
@@ -56,8 +52,7 @@ var questionList = [
         wrongAnswer3: "China",
         questionImg: "assets/images/homersdream",
         answerImg: "assets/images/giphy(6).gif",
-    },
-    {
+    }, {
         question: "A barrel of beer contains how many gallons?",
         answer: "31 gallons",
         wrongAnswer1: "55 gallons",
@@ -65,8 +60,7 @@ var questionList = [
         wrongAnswer3: "5 gallons",
         questionImg: "",
         answerImg: "assets/images/giphy(7).gif",
-    },
-    {
+    }, {
         question: "What is a Labeorphilist?",
         answer: "a collector of beer bottles",
         wrongAnswer1: "a brewing historian",
@@ -75,18 +69,9 @@ var questionList = [
         questionImg: "assets/images/homersdream",
         answerImg: "assets/images/giphy(6).gif",
     },
-    {
-        question: "Lajitas, Texas is in this game for what reason?",
-        answer: "In the 1980s they elected a beer drinking goat to mayor",
-        wrongAnswer1: "They built the largest brewery in North America, and it burned down a year later.",
-        wrongAnswer2: "The location where the original recipe for beer was discovered on golden plates",
-        wrongAnswer3: "In 2011 they were labeled the hang-over capital of the world",
-        questionImg: "",
-        answerImg: "assets/images/giphy(7).gif",
-    },
 
 ];
-successImages = ["assets/images/giphy(4).gif", "assets/images/giphy(5).gif", "assets/images/giphy(6).gif", "assets/images/giphy(7).gif", "assets/images/giphy(8).gif", "assets/images/giphy(11).gif", "assets/images/giphy(15).gif", "assets/images/giphy(16).gif"]
+successImages = ["assets/images/cheers1.gif"]
 endImages = ["assets/images/end1.gif", "assets/images/end2.gif", "assets/images/end3.gif", "assets/images/end4.gif", "assets/images/end5.gif", "assets/images/end6.gif"]
 failImages = ["assets/images/fail1.gif", "assets/images/fail2.gif", "assets/images/fail3.gif", "assets/images/fail4.gif", "assets/images/fail5.gif", "assets/images/fail6.gif"]
 function randomImage(array) {
@@ -110,7 +95,7 @@ function gameReset() {
     correct = 0;
     questionIndex = 0;
     $(".score").addClass("hidden");
-
+    shuffle(questionList);
 }
 function shuffle(array) {
     // shuffles any array
@@ -160,7 +145,6 @@ function nextQuestion() {
     setTimeout(function () { questionReset(questionList[questionIndex]) }, 5500);
 }
 
-
 function questionReset(object) {
     if (questionIndex >= questionsAsked) {
         endGame();
@@ -185,8 +169,6 @@ function questionReset(object) {
             $(displayArray[i]).text(answerArray[i]);
 
         };
-
-        // countDownTimer();
     }
 }
 // console.log("does this work?" + displayArray[i]);
@@ -239,7 +221,6 @@ window.onload =
 
         // set game up
         gameReset();
-
         $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
         countDownTimer()
@@ -260,20 +241,5 @@ window.onload =
 
 
             }
-
-
-        }
-        )
-    }
-
-
-
-
-
-
-
-
-
-
-
-    )
+        })
+    })
