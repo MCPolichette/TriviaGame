@@ -125,6 +125,7 @@ function countDownTimer() {
             unanswered++;
             $("#confirm").text("YOU RAN OUT OF TIME");
             console.log(questionIndex);
+            $(".isWrong").removeClass("hidden");
             $("#prompt").text("the correct answer was");
             $("#correctAnswer").text(questionList[questionIndex].answer);
             $('audio#times_up')[0].play();
