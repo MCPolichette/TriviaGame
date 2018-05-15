@@ -1,6 +1,6 @@
 
 // questionArray is for shuffling questions
-questionsAsked = 4;
+questionsAsked = 9;
 var questionList = [
     // Objects as Trivia Questions
     {
@@ -142,7 +142,7 @@ function countDownTimer() {
             console.log(questionIndex);
             $("#prompt").text("the correct answer was");
             $("#correctAnswer").text(questionList[questionIndex].answer);
-            $('audio#horn_fail')[0].play();
+            $('audio#times_up')[0].play();
         }
     }
 }
@@ -165,6 +165,7 @@ function questionReset(object) {
     if (questionIndex >= questionsAsked) {
         endGame();
     } else {
+        $('#countDown').html("<h5>10 seconds</h5>")
         $(".game").removeClass("hidden");
         $("#scoreCard").addClass("hidden");
         stop();
