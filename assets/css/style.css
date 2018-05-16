@@ -33,6 +33,10 @@ h1{
 }
 .card-header{
     background-color: chocolate;
+    font-size:20px;
+    color:white;
+    letter-spacing: 1px;
+
 }
 .btn{
     margin:auto;

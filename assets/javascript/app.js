@@ -97,7 +97,7 @@ function gameReset() {
     shuffle(questionList);
     $(".score").addClass("hidden");
     $("#confirm").removeClass("hidden");
-    console.log("Game Reset confirmed. wrong:" + wrong + " unanswered:" + unanswered + " correct:" + correct + " questionindex:" + questionIndex)
+    console.log("Reset Game: wrong" + wrong + "/unanswered" + unanswered + "/correct" + correct + "/questionindex:" + questionIndex)
 }
 function shuffle(array) {
     // shuffles any array
@@ -142,12 +142,12 @@ function nextQuestion() {
     $("#scoreCard").removeClass("hidden");
     console.log(questionIndex);
     setTimeout(function () { questionIndex++ }, 1500);
-    console.log(questionIndex);
-    console.log(questionList[questionIndex]);
     setTimeout(function () { questionReset(questionList[questionIndex]) }, 5500);
 }
 
 function questionReset(object) {
+    console.log("QUESTION Reset: wrong" + wrong + "/unanswered" + unanswered + "/correct" + correct + "/questionindex:" + questionIndex)
+    stop();
     if (questionIndex >= questionsAsked) {
         endGame();
     } else {
@@ -162,8 +162,8 @@ function questionReset(object) {
         $('#q').text(object.question);
         var answerArray = [object.answer, object.wrongAnswer1, object.wrongAnswer2, object.wrongAnswer3];
         // answerArray is used for shuffling answers
-        console.log(object.question);
         shuffle(answerArray);
+        console.log(answerArray);
 
         var displayArray = ["#a1", "#a2", "#a3", "#a4"];
         for (i = 0; i < displayArray.length; i++) {
@@ -183,7 +183,7 @@ function congratsDude(object) {
     // randomImage(successImages);
     $("#imagePlace").attr("src", object.answerImg);
     $('audio#correct_answer')[0].play();
-    console.log(object.answerImg)
+    console.log(questionIndex + "questionIndex")
 }
 function losingHappens(object) {
     // follows choosing wrong number
@@ -193,7 +193,6 @@ function losingHappens(object) {
     nextQuestion();
     $(".isWrong").removeClass("hidden");
     $("#confirm").text("YOU ARE WRONG");
-    console.log(questionIndex);
     $("#prompt").text("the correct answer was");
     $("#correctAnswer").text(questionList[questionIndex].answer);
     $('audio#horn_fail')[0].play();
@@ -214,7 +213,6 @@ function endGame() {
     $(".isWrong").addClass("hidden");
     randomImage(endImages);
     $('audio#end_game_song')[0].play();
-
 }
 
 // GAME BEGINS HERE.
@@ -225,8 +223,6 @@ window.onload =
 
         // set game up
         gameReset();
-        console.log("Game Reset confirmed. wrong:" + wrong + " unanswered:" + unanswered + " correct:" + correct + " questionindex:" + questionIndex)
-
         $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
         countDownTimer()
