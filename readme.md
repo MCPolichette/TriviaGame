@@ -12,7 +12,7 @@ Motivation
 
     In this project I wanted to work more with understanding classes with bootstrap, and integrating javascript code to make the experience seem smooth and engaging..
 
-    I wanted to work with objects to better understand their functioning. and learn to work using more complicated actions.
+    I wanted to work with objects to better understand their functioning. and learn to work using more complicated actions.d
 
 To Play
 
