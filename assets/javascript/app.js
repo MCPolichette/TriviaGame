@@ -98,6 +98,7 @@ function gameReset() {
     $(".score").addClass("hidden");
     $("#confirm").removeClass("hidden");
     console.log("Reset Game: wrong" + wrong + "/unanswered" + unanswered + "/correct" + correct + "/questionindex:" + questionIndex)
+
 }
 function shuffle(array) {
     // shuffles any array
@@ -209,35 +210,39 @@ function endGame() {
     $("#start").text("TRY AGAIN?");
     randomImage(endImages);
     $('audio#end_game_song')[0].play();
+    // $("#start").remove();
 }
-
+// .isWrong, #confirm, .score, #scoreCard, #start, #totalWrong, #totalUnanswered
 // GAME BEGINS HERE.
-window.onload =
+window.onload = function (event) {
+    $(".possibleAnswer").on('click', function () {
+        var click = $(this);
+        var check = click.text();
+        console.log("testclick!!!");
 
+        if (check === questionList[questionIndex].answer) {
+            congratsDude(questionList[questionIndex]);
+            console.log("correct" + correct);
+
+
+
+        } else {
+            losingHappens(questionList[1]);
+            console.log("wrong" + wrong);
+
+
+        }
+    })
     $("#start").on('click', function () {
         console.log("gameBegins");
 
         // set game up
+
         gameReset();
         $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
         countDownTimer();
         questionReset(questionList[questionIndex]);
-        $(".possibleAnswer").on('click', function () {
-            var click = $(this);
-            var check = click.text();
 
-            if (check === questionList[questionIndex].answer) {
-                congratsDude(questionList[questionIndex]);
-                console.log("correct" + correct);
-
-
-
-            } else {
-                losingHappens(questionList[1]);
-                console.log("wrong" + wrong);
-
-
-            }
-        })
     })
+}
