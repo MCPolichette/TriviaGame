@@ -1,6 +1,6 @@
 
-// questionArray is for shuffling questions
-questionsAsked = 5;
+
+
 var questionList = [
     // Objects as Trivia Questions
     {
@@ -78,8 +78,11 @@ function randomImage(array) {
     i = (Math.floor(Math.random() * array.length));
     $("#imagePlace").attr("src", array[i]);
 }
+
 // global timer variables:
-var seconds = 10;
+var timesPlayed = 0;
+var questionsAsked = 5;
+var countdownSeconds = 10;
 var secondID;
 var timerOn = false;
 // global score variables:
@@ -95,6 +98,7 @@ function gameReset() {
     correct = 0;
     questionIndex = 0;
     shuffle(questionList);
+    // $("#start").empty();
     $(".score").addClass("hidden");
     $("#confirm").removeClass("hidden");
     console.log("Reset Game: wrong" + wrong + "/unanswered" + unanswered + "/correct" + correct + "/questionindex:" + questionIndex)
@@ -155,7 +159,7 @@ function questionReset(object) {
         $(".game").removeClass("hidden");
         $("#scoreCard").addClass("hidden");
         stop();
-        seconds = 10;
+        seconds = countdownSeconds;
         countDownTimer();
         $('audio#pour_me')[0].play();
         // resets next questsion
@@ -180,7 +184,6 @@ function congratsDude(object) {
     nextQuestion();
     $("#confirm").text("YOU ARE CORRECT");
     $(".isWrong").addClass("hidden");
-    // randomImage(successImages);
     $("#imagePlace").attr("src", object.answerImg);
     $('audio#correct_answer')[0].play();
     console.log(questionIndex + "questionIndex")
@@ -199,18 +202,15 @@ function losingHappens(object) {
 }
 
 function endGame() {
+    // sets up the different displays.
     console.log("GAMEOVER");
     stop();
-    $(".game").addClass("hidden");
-    $("#scoreCard").removeClass("hidden");
-    $(".score").removeClass("hidden");
-    $("#confirm").addClass("hidden");
+    $(".game, .isWrong, #confirm").addClass("hidden");
+    $(".score, #scoreCard, #start").removeClass("hidden");
     $("#totalCorrect").text("Correct:  " + correct);
     $("#totalWrong").text("Wrong:  " + wrong);
     $("#totalUnanswered").text("Unanswered:  " + unanswered);
-    $("#start").removeClass("hidden");
     $("#start").text("TRY AGAIN?");
-    $(".isWrong").addClass("hidden");
     randomImage(endImages);
     $('audio#end_game_song')[0].play();
 }
@@ -223,10 +223,12 @@ window.onload =
 
         // set game up
         gameReset();
+
+
         $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
-        countDownTimer()
-        questionReset(questionList[questionIndex])
+        countDownTimer();
+        questionReset(questionList[questionIndex]);
         $(".possibleAnswer").on('click', function () {
             var click = $(this);
             var check = click.text();
