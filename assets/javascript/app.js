@@ -1,6 +1,3 @@
-
-
-
 var questionList = [
     // Objects as Trivia Questions
     {
@@ -43,8 +40,7 @@ var questionList = [
         wrongAnswer3: "South Dakota and Maine",
         questionImg: "",
         answerImg: "assets/images/cheers5.gif",
-    },
-    {
+    }, {
         question: "Which country drinks the most Guinness?",
         answer: "Nigeria",
         wrongAnswer1: "United States",
@@ -69,11 +65,11 @@ var questionList = [
         questionImg: "",
         answerImg: "assets/images/cheers8.gif",
     },
-
 ];
 successImages = ["assets/images/cheers10.gif"]
 endImages = ["assets/images/end1.gif", "assets/images/end2.gif", "assets/images/end3.gif", "assets/images/end4.gif", "assets/images/end5.gif", "assets/images/end6.gif"]
 failImages = ["assets/images/fail1.gif", "assets/images/fail2.gif", "assets/images/fail3.gif", "assets/images/fail4.gif", "assets/images/fail5.gif", "assets/images/fail6.gif"]
+
 function randomImage(array) {
     i = (Math.floor(Math.random() * array.length));
     $("#imagePlace").attr("src", array[i]);
@@ -223,8 +219,6 @@ window.onload =
 
         // set game up
         gameReset();
-
-
         $(".game").removeClass("hidden");
         $("#start").addClass("hidden");
         countDownTimer();
