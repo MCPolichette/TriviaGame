@@ -2,7 +2,7 @@
 
 # [Play The Game!](https://MCPolichette.github.io//TriviaGame)
 
-![ScreenShot](/images/readMePics/BeerTrivia.PNG)
+![ScreenShot](/assets/images/readMePics/BeerTrivia.PNG)
 
 ### Titled : BEER TRIVIA
 
@@ -14,7 +14,7 @@ In this project I wanted to work more with understanding classes with bootstrap,
 
 #### To Play
 
-![ScreenShot](/images/readMePics/CountDown.PNG)
+![ScreenShot](/assets/images/readMePics/Countdown.PNG)
 The game starts with a single button to start. upon clicking the start, the game will begin asking multiple choice questions, while also displaying a countdown timer. Each answer has a specific image attached to it, which will be displayed if answered correctly. If the answer is wrong, it will display a random "losing image".
 
 After a specified amount of questions, a scoreboard will apear, showing the totals of how many answers were correct, wrong, and unanswered.
