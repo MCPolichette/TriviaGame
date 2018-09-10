@@ -1,6 +1,8 @@
 # Trivia Game
 
-# [Play The Game!]("https://MCPolichette.github.io//TriviaGame)
+# [Play The Game!](https://MCPolichette.github.io//TriviaGame)
+
+![ScreenShot](/images/readMePics/BeerTrivia.PNG)
 
 ### Titled : BEER TRIVIA
 
@@ -9,8 +11,10 @@ Created with intentions to learn more about timeouts, and intervals in javascrip
 ### Motivation
 
 In this project I wanted to work more with understanding classes with bootstrap, and integrating javascript code to make the experience seem smooth and engaging. I wanted to work with objects to better understand their functioning. and learn to work using more complicated actions.
-To Play
 
+#### To Play
+
+![ScreenShot](/images/readMePics/CountDown.PNG)
 The game starts with a single button to start. upon clicking the start, the game will begin asking multiple choice questions, while also displaying a countdown timer. Each answer has a specific image attached to it, which will be displayed if answered correctly. If the answer is wrong, it will display a random "losing image".
 
 After a specified amount of questions, a scoreboard will apear, showing the totals of how many answers were correct, wrong, and unanswered.
@@ -32,5 +36,5 @@ it will also display a button to restart gameplay.
     - S: Bier einschenken by mwirth -- https://freesound.org/s/137166/ -- License: Attribution
 - Visual Studio Code
 
-####Author:
+###Author:
 Mark Polichette

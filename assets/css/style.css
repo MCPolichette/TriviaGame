@@ -1,50 +1,97 @@
-body{
-    background-color: aqua;
+body {
+  background-color: aqua;
 }
-.container{
-    font-family: 'Lalezar', cursive;
-    margin-top: 20px;
-    background-image: url(../images/twomugs.jpg);
-    background-size: cover;
-    padding: 20px;
-    text-align: center;
-    min-height: 494px;
+.container {
+  font-family: "Lalezar", cursive;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-image: url(../images/twomugs.jpg);
+  background-size: cover;
+  padding: 20px;
+  text-align: center;
+  min-height: 494px;
 }
-h1{
-    font-size: 50px;
-    color:whitesmoke;
-    text-shadow: black 0.2em 0.1em .5em;
-    font-family: 'Ewert', cursive;
-
+h1 {
+  font-size: 50px;
+  color: whitesmoke;
+  text-shadow: black 0.2em 0.1em 0.5em;
+  font-family: "Ewert", cursive;
 }
-.card{
-    max-width: 100%;
-    margin-top: 20px;
-    margin-left:auto;
-    margin-right: auto;
-    
+.card {
+  max-width: 100%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.possibleAnswer{
-    background-color: rgb(238, 171, 123);
-
+.possibleAnswer {
+  background-color: rgb(238, 171, 123);
 }
-#timerCard{
-    background-color: sandybrown;
+#timerCard {
+  background-color: sandybrown;
 }
-.card-header{
-    background-color: chocolate;
-    font-size:20px;
-    color:white;
-    letter-spacing: 1px;
+.card-header {
+  background-color: chocolate;
+  font-size: 20px;
+  color: white;
+  letter-spacing: 1px;
 }
 
-.btn{
-    margin:auto;
+.btn {
+  margin: auto;
 }
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
-img{
-    max-height: 300px;
-    max-width:100%
+img {
+  max-height: 300px;
+  max-width: 100%;
+}
+
+/* Footer Stuff! */
+.pagebottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #666666;
+  height: 3.3em;
+  color: white;
+  text-align: center;
+  border: #4aaaa5;
+  border-width: 15px;
+}
+.social:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  color: white;
+}
+.social {
+  -webkit-transform: scale(0.8);
+  /* Browser Variations: */
+  color: #000;
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  float: right;
+}
+.bottom-center {
+  color: white;
+  font-family: "Georgia", Times, Times New Roman, serif;
+  width: 100%;
+  border-top-color: #cccccc;
+  border-top-width: 2px;
+  overflow: auto;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bottom-name {
+  float: left;
+  background: #22524f;
+  color: white;
+  font-size: 26px;
+  padding: 10px;
 }
