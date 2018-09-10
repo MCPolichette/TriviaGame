@@ -6,9 +6,9 @@ body{
     margin-top: 20px;
     background-image: url(../images/twomugs.jpg);
     background-size: cover;
-padding: 20px;
-text-align: center;
-min-height: 494px;
+    padding: 20px;
+    text-align: center;
+    min-height: 494px;
 }
 h1{
     font-size: 50px;
